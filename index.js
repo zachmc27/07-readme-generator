@@ -1,12 +1,12 @@
 // TODO: Include packages needed for this application
 import fs from 'fs'
-import generateMarkdown from './utils/generateMarkdown';
+import generateMarkdown from './utils/generateMarkdown.js';
 import inquirer from 'inquirer';
 // TODO: Create an array of questions for user input
 //length: 11  
-const questions = ['What is the title of the project?', 'Describe your application:', 'List prerequisites necessary in an array format:',
-     'List installation steps in an array format:', 'List steps to start the application in an array format:', 'Explain how to operate the main functionality of the application:', 
-     'Which license would you like to use?', 'How can a user contribute to the project?', 'How can a user run tests on the project?', 'What is your github username?', 
+const questions = ['What is the title of the project?', 'Describe your application:', 'List prerequisites necessary, each separated by a comma:',
+     'List installation steps, separated by a comma:', 'List steps to start the application, separated by a comma:', 'Explain how to operate the main functionality of the application:', 
+     'Which license would you like to use?', 'How can a user contribute to the project? List steps separated by a comma.', 'How can a user run tests on the project?', 'What is your github username?', 
      'What email would you like to provide for user questions?'];
 
 // TODO: Create a function to write README file
@@ -81,10 +81,24 @@ function init() {
             }
         ])
         .then((ans) => {
-            const prereqArray = JSON.parse(ans.prerequisites);
-            const installArray = JSON.parse(ans.installation);
-            const startupArray = JSON.parese(ans.startup);
+            const prereqArray = ans.prerequisites.split(',').map(item => item.trim());
+            const installArray = ans.installation.split(',').map(item => item.trim());
+            const startupArray = ans.startup.split(',').map(item => item.trim());
+            const contributeArray = ans.contribute.split(',').map(item => item.trim());
+            
+            function formattedSteps(array) {
+                let generatedSteps = '';
+                for (let i = 0; i < array.length; i++) {
+                    let stepString = `${i+1}: ${array[i]}\n`
+                    generatedSteps += stepString;
+                }
+                return generatedSteps;
+            }
+                
+
+            
             writeToFile('README.md', generateMarkdown())
+            
         })
 }
 
