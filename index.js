@@ -85,11 +85,11 @@ function init() {
             const installArray = ans.installation.split(',').map(item => item.trim());
             const startupArray = ans.startup.split(',').map(item => item.trim());
             const contributeArray = ans.contribute.split(',').map(item => item.trim());
-            
+
             function formattedSteps(array) {
                 let generatedSteps = '';
                 for (let i = 0; i < array.length; i++) {
-                    let stepString = `${i+1}: ${array[i]}\n`
+                    let stepString = `${i+1}. ${array[i]}\n`
                     generatedSteps += stepString;
                 }
                 return generatedSteps;
@@ -97,7 +97,10 @@ function init() {
                 
 
             
-            writeToFile('README.md', generateMarkdown())
+            writeToFile('Success.md', generateMarkdown(ans.title, ans.description, 
+                formattedSteps(prereqArray), formattedSteps(installArray), formattedSteps(startupArray), ans.operation, ans.license,
+                formattedSteps(contributeArray), ans.test, ans.github, ans.email), 
+                (err) => err ? console.error(err) : console.log('Success!'))
             
         })
 }

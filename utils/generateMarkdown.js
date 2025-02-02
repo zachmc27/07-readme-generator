@@ -1,25 +1,25 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-let licenseBadge;
+let licenseBadge = '';
 
 function renderLicenseBadge(license) {
   switch (license) {
     case "MIT":
-      licenseBadge = `![License: MIT] (https://img.shields.io/badge/License-MIT-blue.svg)`;
+      licenseBadge = `![Static Badge](https://img.shields.io/badge/License-MIT-blue.svg)`;
       break;
     case "Apache 2.0":
-      licenseBadge = ``;
+      licenseBadge = `![Static Badge](https://img.shields.io/badge/License-Apache%202.0-blue.svg)`;
       break;
     case "GPL":
-      licenseBadge = ``;
+      licenseBadge = `![Static Badge](https://img.shields.io/badge/License-GPL-blue.svg)`;
     case "BSD":
-      licenseBadge = ``
+      licenseBadge = `![Static Badge](https://img.shields.io/badge/License-BSD-blue.svg)`;
     default:
-      licenseBadge = ``
-
+      licenseBadge = ``;
   }
+  return licenseBadge;
 }
-
+console.log(renderLicenseBadge('MIT'))
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 let licenseLink;
@@ -27,21 +27,22 @@ let licenseLink;
 function renderLicenseLink(license) {
   switch (license) {
     case "MIT":
-      licenseLink = ``;
+      licenseLink = `https://opensource.org/license/MIT`;
       break;
     case "Apache 2.0":
-      licenseLink = ``;
+      licenseLink = `https://www.apache.org/licenses/LICENSE-2.0`;
       break;
     case "GPL":
-      licenseLink = ``;
+      licenseLink = `https://www.gnu.org/licenses/gpl-3.0.en.html`;
       break;
     case "BSD":
-      licenseLink = ``;
+      licenseLink = `https://opensource.org/license/bsd-3-clause`;
       break;
     default:
-      licenseLink = ""
+      licenseLink = ``;
 
   }
+  return licenseLink;
 }
 
 // TODO: Create a function that returns the license section of README
@@ -51,100 +52,103 @@ let licenseSection;
 function renderLicenseSection(license) {
   switch (license) {
     case "MIT":
-      licenseSection = ``;
+      licenseSection = `This application is covered under the MIT License. For more information, view the official documentation [here](${renderLicenseLink('MIT')})`;
       break;
      case "Apache 2.0":
-      licenseSection = ``;
+      licenseSection = `This application is covered under the Apache 2.0 License. For more information, view the official documentation [here](${renderLicenseLink('Apache 2.0')})`;
       break;
      case "GPL":
-      licenseSection = ``;
+      licenseSection = `This application is covered under the GNU General Public License (GPL). For more information, view the official documentation [here](${renderLicenseLink('GPL')})`;
       break;
       case "BSD":
-        licenseSection = ``;
+        licenseSection = `This application is covered under the BSD license. For more information, view the official documentation [here](${renderLicenseLink('BSD')})`;
         break;
     default:
-      licenseSection = ""
+      licenseSection = ``
 
   }
+  return licenseSection;
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(title, description, prerequisites, installation,
-  startup, operation, license, link, contribute, test, github, email) {
+  startup, operation, license, contribute, test, github, email) {
   
- let markdown;
-
-  markdown = `
+ return `
   # ${title}
-  \n \n
+  
   ${renderLicenseBadge(license)}
-  \n \n
+  
+  ## About
+
   ${description}
-  \n \n
+   
   ---
-  \n \n
-  ## Table of Contents \n
-  - [Installation] (#installation)\n
-  - [Usage] (#usage)\n
-  - [Contributing] (#contributing)\n
-  - [Tests] (#tests)\n
-  - [License] (#license)\n
-  - [Questions] (#questions)\n
-  \n \n
+   
+  ## Table of Contents 
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contributing](#contributing)
+  - [Tests](#tests)
+  - [License](#license)
+  - [Questions](#questions)
+   
   ---
-  \n \n
+   
   ## Installation
-  \n \n
+   
   Here are the prerequisites necessary to use the project:
-  \n \n
-  \t${prerequisites}
-  \n
+   
+  ${prerequisites}
+  
   To get started with the project, follow these steps:
-  \n \n
-  \t${installation}
-  \n \n
+   
+  ${installation}
+   
   ---
-  \n \n
+   
   ## Usage 
-  \n \n
+   
   Here are the steps to start the application:
-  \n \n
-  \t${startup}
-  \n
+   
+  ${startup}
+  
   To use the application, do the following:
+
   ${operation}
-  \n \n 
+    
   ## Contrubuting
-  \n \n
-  Any contributions are appreciated as they are vital to the improvement and wellbeing of the project.\n
+   
+  Any contributions are appreciated as they are vital to the improvement and wellbeing of the project.
+
   If you would like to contribute, please follow these steps:
+
   ${contribute}
-  \n \n
+   
   ---
-  \n \n
+   
   ## Tests
-  \n \n
+   
   In order to run tests on the project, do the following:
-  \n \n
+   
   ${test}
-  \n \n
+   
   ---
-  \n \n
+   
   ## License 
-  \n \n
+   
   ${renderLicenseSection(license)}
-  \n \n
+   
   ---
-  \n \n
+   
   ## Questions
-  \n \n
+   
   For any questions or assistance, please reach out through these mediums:
-  \n \n
-  - **Github:** [${github}] (https://github.com/${github})\n
-  - **Email:** <${email}>\n
+   
+  - **Github:** [${github}](https://github.com/${github})
+  - **Email:** <${email}>
   ---
   `
-
 }
 
 export default generateMarkdown;
