@@ -52,16 +52,16 @@ let licenseSection;
 function renderLicenseSection(license) {
   switch (license) {
     case "MIT":
-      licenseSection = `This application is covered under the MIT License. For more information, view the official documentation [here](${renderLicenseLink('MIT')})`;
+      licenseSection = `This application is covered under the MIT License. For more information, view the official documentation [here](${renderLicenseLink('MIT')}).`;
       break;
      case "Apache 2.0":
-      licenseSection = `This application is covered under the Apache 2.0 License. For more information, view the official documentation [here](${renderLicenseLink('Apache 2.0')})`;
+      licenseSection = `This application is covered under the Apache 2.0 License. For more information, view the official documentation [here](${renderLicenseLink('Apache 2.0')}).`;
       break;
      case "GPL":
-      licenseSection = `This application is covered under the GNU General Public License (GPL). For more information, view the official documentation [here](${renderLicenseLink('GPL')})`;
+      licenseSection = `This application is covered under the GNU General Public License (GPL). For more information, view the official documentation [here](${renderLicenseLink('GPL')}).`;
       break;
       case "BSD":
-        licenseSection = `This application is covered under the BSD license. For more information, view the official documentation [here](${renderLicenseLink('BSD')})`;
+        licenseSection = `This application is covered under the BSD license. For more information, view the official documentation [here](${renderLicenseLink('BSD')}).`;
         break;
     default:
       licenseSection = ``
@@ -83,7 +83,7 @@ function generateMarkdown(title, description, prerequisites, installation,
 
   ${description}
    
-  ---
+
    
   ## Table of Contents 
   - [Installation](#installation)
@@ -93,7 +93,7 @@ function generateMarkdown(title, description, prerequisites, installation,
   - [License](#license)
   - [Questions](#questions)
    
-  ---
+
    
   ## Installation
    
@@ -105,7 +105,7 @@ function generateMarkdown(title, description, prerequisites, installation,
    
   ${installation}
    
-  ---
+
    
   ## Usage 
    
@@ -117,7 +117,7 @@ function generateMarkdown(title, description, prerequisites, installation,
 
   ${operation}
     
-  ## Contrubuting
+  ## Contributing
    
   Any contributions are appreciated as they are vital to the improvement and wellbeing of the project.
 
@@ -125,7 +125,7 @@ function generateMarkdown(title, description, prerequisites, installation,
 
   ${contribute}
    
-  ---
+
    
   ## Tests
    
@@ -133,13 +133,13 @@ function generateMarkdown(title, description, prerequisites, installation,
    
   ${test}
    
-  ---
+
    
   ## License 
    
   ${renderLicenseSection(license)}
    
-  ---
+
    
   ## Questions
    
@@ -147,7 +147,7 @@ function generateMarkdown(title, description, prerequisites, installation,
    
   - **Github:** [${github}](https://github.com/${github})
   - **Email:** <${email}>
-  ---
+
   `
 }
 

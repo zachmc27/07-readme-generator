@@ -101,7 +101,7 @@ function init() {
                 
 
             
-            writeToFile('test.md', generateMarkdown(ans.title, ans.description, 
+            writeToFile('Tutorial-2.md', generateMarkdown(ans.title, ans.description, 
                 formattedSteps(prereqArray), formattedSteps(installArray), formattedSteps(startupArray), ans.operation, ans.license,
                 formattedSteps(contributeArray), ans.test, ans.github, ans.email), 
                 (err) => err ? console.error(err) : console.log('Success!'))
