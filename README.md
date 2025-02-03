@@ -67,7 +67,7 @@
   3. step 3  
     
   
-  **Follow this video tutorial for a visual step by step guide on starting and using the application**: [Tutorial](https://drive.google.com/file/d/1zRhgsP6MJCTJl4vioQ9hx96No6NEl6gT/view?usp=drive_link)
+  **Follow this video tutorial for a visual step by step guide on starting and using the application**: [Tutorial](https://drive.google.com/file/d/1zRhgsP6MJCTJl4vioQ9hx96No6NEl6gT/view?usp=sharing)
 
   ## Contrubuting
    
