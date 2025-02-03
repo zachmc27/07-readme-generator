@@ -1,5 +1,5 @@
 // TODO: Include packages needed for this application
-import fs from 'fs'
+import fs from 'fs';
 import generateMarkdown from './utils/generateMarkdown.js';
 import inquirer from 'inquirer';
 // TODO: Create an array of questions for user input
@@ -13,10 +13,8 @@ const questions = ['What is the title of the project?', 'Describe your applicati
 function writeToFile(fileName, data) {
     fs.writeFile(`${fileName}`, data, (err) => {
         err ? console.error(err) : console.log(`${fileName} has been written.`)
-    })
-
-    
-}
+    });
+};
 
 // TODO: Create a function to initialize app
 function init() {
@@ -90,21 +88,21 @@ function init() {
                 let generatedSteps = '';
                 if (array.length > 1) {
                 for (let i = 0; i < array.length; i++) {
-                    let stepString = `${i+1}. ${array[i]}\n`
+                    let stepString = `${i+1}. ${array[i]}\n`;
                     generatedSteps += stepString;
-                    }
+                    };
                 } else {
-                    generatedSteps = array[0]
+                    generatedSteps = array[0];
                 }
                 return generatedSteps;
-            }
+            };
                 
 
             
             writeToFile('Tutorial-2.md', generateMarkdown(ans.title, ans.description, 
                 formattedSteps(prereqArray), formattedSteps(installArray), formattedSteps(startupArray), ans.operation, ans.license,
                 formattedSteps(contributeArray), ans.test, ans.github, ans.email), 
-                (err) => err ? console.error(err) : console.log('Success!'))
+                (err) => err ? console.error(err) : console.log('Success!'));
             
         })
 }
